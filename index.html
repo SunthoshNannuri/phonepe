@@ -1,22 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make a UPI Payment</title>
-    <link rel="stylesheet" href="api.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .payment-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #5f27cd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #341f97;
+    }
+
+  </style>
 </head>
 <body>
+  <div class="payment-container">
+    <h1>Make a Payment</h1>
+    <form id="paymentForm">
+      <label for="amount">Amount (INR):</label>
+      <input type="number" id="amount" name="amount" required>
+      <button type="submit">Pay with UPI</button>
+    </form>
+  </div>
 
-    <div class="container">
-        <h2>Make a UPI Payment</h2>
-        <form id="paymentForm">
-            <label for="amount">Enter Amount (INR):</label>
-            <input type="number" id="amount" name="amount" required>
-            <button type="submit">Pay Now</button>
-        </form>
-    </div>
+  <script>
+    // Ensure the DOM is fully loaded before accessing elements
+    document.addEventListener("DOMContentLoaded", function () {
+      // Payment form submission event
+      document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    <script src="api.js"></script>
+        const amount = document.getElementById('amount').value;
+
+        // Check if the amount is valid
+        if (amount <= 0 || isNaN(amount)) {
+          alert("Please enter a valid amount.");
+          return;
+        }
+
+        // Simulating the UPI deep link
+        const upiId = "9701031195@axl";  // Replace with your UPI ID
+        const description = "Payment for goods";  // Payment description (optional)
+        const userName = "YourName";  // Your name (optional)
+
+        // UPI deep link
+        const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(userName)}&tn=${encodeURIComponent(description)}&am=${amount}&cu=INR`;
+
+        // Simulate UPI link redirection
+        window.location.href = upiLink;
+
+        // Simulate successful payment (after 3 seconds for demo)
+        setTimeout(function() {
+          window.location.href = "index.html";  // Redirect to the same page or any success page
+        }, 3000);  // Wait 3 seconds to simulate success
+      });
+    });
+  </script>
 </body>
 </html>
