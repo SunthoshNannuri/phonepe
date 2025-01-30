@@ -7,7 +7,7 @@ document.getElementById('paymentForm').addEventListener('submit', function (e) {
         return;
     }
 
-    const upiId = "9701031195@axl"; // Replace with your UPI ID
+    const upiId = "9441487955@ibl"; // Replace with your UPI ID
     const userName = "YourName"; // Replace with your name (optional)
     const description = "Payment"; // Description for the payment (optional)
 
