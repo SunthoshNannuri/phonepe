@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="login.js"></script>
+</head>
+<body>
+    <div id="menu">
+        
+    </div>
+    <div class="wrapper">
+       
+            <h1>Login</h1>
+            <div class="input-box">
+              
+                <input type="text" placeholder="Username" id="user" required>
+                <span class="icon"></span>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="pass"  required>
+                <span class="icon"></span>
+            </div>
+            <div class="remember">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="pass.html">forgot password?</a>
+            </div>
+            <button class="btn" onclick="login()">Login</button>
+            <div id="error-message" class="error-message"></div>
+
+            <div class="register">
+            <p>Don't you have an account?<a href="register.html">Register</a></p>
+            </div>
+            <div id="back">
+                <i class="fa fa-home" onclick="back()"></i>
+            </div>
+            
+      
+
+    </div>
+</body>
+</html>
